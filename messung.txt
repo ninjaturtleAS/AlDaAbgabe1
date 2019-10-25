@@ -1,0 +1,20 @@
+Messungen
+
+n = 8000
+SAD 
+-> Aufbau: 789 msec
+-> Erfolgreiche Suche: 22 msec
+-> Nicht erfolgreiche Suche: 12 msec
+Hash
+-> Aufbau: 36 msec
+-> Erfolgreiche Suche: 9.9 msec
+-> Nicht erfolgreiche Suche: 13.9 msec
+
+n = 16000
+-> Aufbau: 2361.8 msec
+-> Erfolgreiche Suche: 17.5 msec
+-> Nicht erfolgreiche Suche: 7 msec
+Hash
+-> Aufbau: 21 msec
+-> Erfolgreiche Suche: 13.65 msec
+-> Nicht erfolgreiche Suche: 3 msec
