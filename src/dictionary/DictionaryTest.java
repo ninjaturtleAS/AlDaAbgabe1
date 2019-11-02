@@ -17,8 +17,8 @@ public class DictionaryTest {
 	 */
 	public static void main(String[] args)  {
 		
-		testSortedArrayDictionary();
-		testHashDictionary();
+		//testSortedArrayDictionary();
+		//testHashDictionary();
 		testBinaryTreeDictionary();
 	}
 
@@ -59,12 +59,12 @@ public class DictionaryTest {
         btd.insert(60, 0);
         System.out.println("insert:");
         btd.prettyPrint();
-/*
+
         System.out.println("For Each Loop:");
         for (Dictionary.Entry<Integer, Integer> e : btd) {
             System.out.println(e.getKey() + ": " + e.getValue());
         }
-*/
+
         btd.remove(30);
         System.out.println("remove:");
         btd.prettyPrint();
@@ -104,11 +104,14 @@ public class DictionaryTest {
 		dict.insert("fahren", "drive");
 		dict.insert("spielen", "play");
 		dict.insert("planen", "plan");
-		/*
+
+
 		for (Dictionary.Entry<String, String> e : dict) {
 			System.out.println(e.getKey() + ": " + e.getValue() + " search: " + dict.search(e.getKey()));
 		}
-		*/
+
+
+
 	}
 	
 }

@@ -6,13 +6,15 @@ import java.util.NoSuchElementException;
 
 public class HashDictionary<K, V> implements Dictionary<K, V> {
 
-    private static final int DEF_CAPACITY = 17;
+    private static final int DEF_CAPACITY = 17; //Primzahl
     private int size;
     private int numberOfEntrys; // load factor = size*1.0/numberOfEntrys
-    private LinkedList<Entry<K, V>>[] table;
+    private LinkedList<Entry<K, V>>[] table; //Generic Array of LL
 
+
+    //initialize
     @SuppressWarnings("unchecked")
-    public HashDictionary() {
+    HashDictionary() {
         size = DEF_CAPACITY;
         numberOfEntrys = 0;
         table = new LinkedList[DEF_CAPACITY];
@@ -21,6 +23,7 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
         }
     }
 
+    //find hascode
     private int hash (K key) {
         int adr = key.hashCode();
         if (adr < 0) {
@@ -29,6 +32,7 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
         return adr % size;
     }
 
+    //find Key return Value
     @Override
     public V search(K key) {
         int indexOfKey = hash(key);
@@ -41,6 +45,7 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
         return null;
     }
 
+    //remove key return value
     @Override
     public V remove(K key) {
         int indexToRemove = hash(key);
@@ -63,6 +68,9 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
         return size;
     }
     @SuppressWarnings("unchecked")
+
+
+    //if it gets too big
     private void ensureCapacityAndReorder(int newSize) {
         if (newSize < size) return;
         LinkedList<Entry<K, V>>[] old = table;
@@ -96,6 +104,7 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
         return true;
     }
 
+    //If key exists write new value return old
     @Override
     public V insert(K key, V value) {
 
@@ -109,9 +118,11 @@ public class HashDictionary<K, V> implements Dictionary<K, V> {
             }
         }
         if (numberOfEntrys != 0) {
+            //check if enough space
             double loadFactor = numberOfEntrys * 1.0 / size;
             if (loadFactor > 3) {
                 boolean primeFound = false;
+                //find primzahl double the size
                 for (int i = 0; i < Integer.MAX_VALUE; ++i) {
                     if (isPrime(2 * size + i)) {
                         ensureCapacityAndReorder(2 * size + i);
